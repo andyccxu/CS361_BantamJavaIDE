@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ * File: Main.fxml
+ * Names: Ricky Peng, Andy Xu, Alex Yu
+ * Class: CS 361
+ * Project 10
+ * Date: May 6, 2022
+-->
+
+<!-- set primary scene of size 800*600 -->
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.fxmisc.flowless.VirtualizedScrollPane?>
+<?import org.fxmisc.richtext.StyleClassedTextArea?>
+<AnchorPane fx:id="anchorPane" prefHeight="600.0" prefWidth="800.0"
+            xmlns="http://javafx.com/javafx/10.0.2"
+            xmlns:fx="http://javafx.com/fxml/1">
+    <!-- make menu bar expand to fill the window if user resizes window  -->
+    <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+             AnchorPane.topAnchor="0.0">
+        <!-- File menu with 6 menu items  -->
+        <Menu mnemonicParsing="false" text="File">
+            <MenuItem text="About..." accelerator="Shortcut+I" mnemonicParsing="false"
+                      onAction="#handleAbout"/>
+            <SeparatorMenuItem mnemonicParsing="false"/>
+            <MenuItem text="New" accelerator="Shortcut+N" mnemonicParsing="false"
+                      onAction="#handleNew"/>
+            <MenuItem text="Open..." accelerator="Shortcut+O" mnemonicParsing="false"
+                      onAction="#handleOpen"/>
+            <MenuItem text="Close" fx:id="closeMI" accelerator="Shortcut+W"
+                      mnemonicParsing="false" onAction="#handleClose"/>
+            <MenuItem text="Save" fx:id="saveMI" accelerator="Shortcut+S"
+                      mnemonicParsing="false" onAction="#handleSave"/>
+            <MenuItem text="Save as..." fx:id="saveAsMI" accelerator="Shortcut+Shift+S"
+                      mnemonicParsing="false" onAction="#handleSaveAs"/>
+            <SeparatorMenuItem mnemonicParsing="false"/>
+            <MenuItem text="Exit" accelerator="Shortcut+Q" mnemonicParsing="false"
+                      onAction="#handleExit"/>
+        </Menu>
+        <!-- Edit menu also has 8 items  -->
+        <Menu mnemonicParsing="false" text="Edit">
+            <MenuItem text="Undo" fx:id="undoMI" accelerator="Shortcut+Z"
+                      mnemonicParsing="false" onAction="#handleUndo"/>
+            <MenuItem text="Redo" fx:id="redoMI" accelerator="Shortcut+Shift+Z"
+                      mnemonicParsing="false" onAction="#handleRedo"/>
+            <MenuItem text="Cut" fx:id="cutMI" accelerator="Shortcut+X"
+                      mnemonicParsing="false" onAction="#handleCut"/>
+            <MenuItem text="Copy" fx:id="copyMI" accelerator="Shortcut+C"
+                      mnemonicParsing="false" onAction="#handleCopy"/>
+            <MenuItem text="Paste" fx:id="pasteMI" accelerator="Shortcut+V"
+                      mnemonicParsing="false" onAction="#handlePaste"/>
+            <MenuItem text="Select all" fx:id="selectAllMI" accelerator="Shortcut+A"
+                      mnemonicParsing="false" onAction="#handleSelectAll"/>
+            <SeparatorMenuItem mnemonicParsing="false"/>
+            <MenuItem text="Find/Replace" fx:id="findReplaceMI"
+                      accelerator="Shortcut+F"
+                      mnemonicParsing="false" onAction="#handleFindReplace"/>
+            <MenuItem text="Matching bracket" fx:id="matchingMI"
+                      accelerator="Shortcut+M"
+                      mnemonicParsing="false" onAction="#handleMatching"/>
+            <MenuItem text="Toggle comment" fx:id="toggleCommentMI"
+                      accelerator="Shortcut+/"
+                      mnemonicParsing="false" onAction="#handleToggleComment"/>
+            <MenuItem text="Pretty print" fx:id="prettyPrintMI"
+                      accelerator="Shortcut+P"
+                      mnemonicParsing="false" onAction="#handlePrettyPrint"/>
+        </Menu>
+    </MenuBar>
+    <!-- use a TabPane to hold the text area  -->
+    <TabPane fx:id="tabPane" layoutX="14.0" layoutY="112.0"
+             prefHeight="396.0" prefWidth="800.0" tabClosingPolicy="ALL_TABS"
+             AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+             AnchorPane.topAnchor="74.0">
+    </TabPane>
+    <!-- use a ToolBar to hold three buttons-->
+    <ToolBar fx:id="toolBar" layoutY="27.0" prefHeight="49.0" prefWidth="400.0"
+             AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <Button text="Check" fx:id="checkButton" mnemonicParsing="false"
+                onAction="#handleCheck"/>
+        <Button text="Compile &amp; Run" fx:id="compileRunButton" mnemonicParsing="false"
+                onAction="#handleCompileRun"/>
+        <Button text="Stop" fx:id="stopButton" mnemonicParsing="false"
+                onAction="#handleStop"/>
+    </ToolBar>
+    <!-- use a VirtualizedScrollPane to hold the console -->
+    <VirtualizedScrollPane prefHeight="100" prefWidth="800"
+                           layoutX="6.0" layoutY="474.0"
+                           AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0"
+                           AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="480.0">
+        <content>
+            <StyleClassedTextArea fx:id="ioConsole" prefHeight="100.0" prefWidth="800.0"
+                                  wrapText="true"/>
+        </content>
+    </VirtualizedScrollPane>
+</AnchorPane>

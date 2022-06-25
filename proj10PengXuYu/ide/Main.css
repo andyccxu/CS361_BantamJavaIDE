@@ -1,0 +1,47 @@
+/*
+ * File: Main.css
+ * Names: Ricky Peng, Andy Xu, Alex Yu
+ * Class: CS 361
+ * Project 6
+ * Date: March 18
+ */
+
+/* Set color for each button in the tool bar */
+#checkButton {
+    -fx-background-color: yellow;
+}
+
+#compileButton {
+    -fx-background-color: lightblue;
+}
+
+#compileRunButton {
+    -fx-background-color: palegreen;
+}
+
+#stopButton {
+    -fx-background-color: lightcoral;
+}
+
+/* Set general styling of the button class */
+.button {
+    -fx-border-color: Black;
+    -fx-background-radius: 6px;
+    -fx-border-radius: 6px;
+}
+
+/* Make font size to 10 */
+.root {
+    -fx-font-size: 10pt;
+}
+
+/* remove border for close button in the search bar */
+#closeBar {
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+}
+
+/* change the highlighted color of selected text to yellow */
+.styled-text-area .selection {
+    -fx-fill: yellow;
+}
