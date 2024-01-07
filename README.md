@@ -1,15 +1,75 @@
-# CS361_BantamJavaIDE
-The source code for the final project of CS361 Object-Oriented Programming in Colby College. The project is cumulative, and we built a Bantam Java IDE working in teams.
+# Bantam Java IDE
 
-## Key Features
-<img width="800" alt="image" src="https://user-images.githubusercontent.com/59164279/175782714-2c1c3709-1ae9-4b20-939e-ec6a024cb780.png">
+Our Bantam Java IDE consists of a menu bar, a tool bar with three buttons, a code editing box, and a console. 
 
-Our Bantam Java IDE consists of a menu bar, a tool bar with three buttons, a text box, and a console at the bottom. It is able to open and edit Bantam Java program files, and save the progress to the local directory. The console is able to interactively respond to basic bash commands like `cd` and `pwd`. By using the buttons in the tool bar, we can check if the current program is well-formed and semantically correct, and we can also compile and run the program. The output will be displayed in the console. 
+- **menu bar**: 
+  - File menu: open, save, save as, and close files.
+  - Edit menu: redo, undo, toggle comments, match brackets, ... 
+- **tool bar**:
+  - check button: check if the current program is well-formed. If not, display error messages on the console.
+  - compile and run: compile and run the Bantam Java program. Redirect standard input/output to the console.
+  - stop: stop the program if the program hangs forever.
+- **code editing box**: where users edit the Bantam Java source code.
+- **console**: it is able to interactively respond to basic shell commands like `cd` and `pwd`. 
 
-## How to Run
-We recommend using Java JDK version 10 on a powerful environment like IntelliJ Idea to run this project. Using Java JDK 10 does not require additionally download and install the JavaFX GUI package.
+![image](https://github.com/andyccxu/CS361_BantamJavaIDE/assets/59164279/751e7605-7de5-417b-87bc-d90b83442982)
 
-On IntelliJ, open the directory that contains the source code files as a new project. In the project structure settings, set the right java SDK version and language level (we recommend version 10). Also, in the Modules page, add the richtextfx jar file to the dependencies list. Lastly, edit the run configurations by choosing the Main class and adding a VM option. The VM option should be like `--module-path <path-to-javafx>/javafx-sdk-10.0.2/lib --add-modules javafx.controls,javafx.fxml`.
+
+## What is Bantam Java
+
+Bantam Java contains a subset of the Java programming language.
+
+A hello world program written in Bantam Java:
+
+```java
+class Main {
+	void main() {
+
+		var textIO = new TextIO();
+		var sys = new Sys();
+        
+		textIO.putString("Hello World!");
+		sys.exit(4);
+	}
+}
+```
+
+Feel free to run the Bantam Java program using our IDE.
+
+
+## Usage
+
+Please follow the instructions below if you'd like to run the code locally using IntelliJ IDEA.
+
+To create a new Intellij project that uses JavaFX:
+
+0. If you haven't already done so, download the JavaFX library from [here](https://gluonhq.com/products/javafx/). We are using JavaFx version 17.0.9.
+
+1. Create a new Java project (not a JavaFX project) using **JDK17**.  This will cause a new folder to be created for the project. I call this folder "root". If there is not a directory named `src` in the root folder, add one. Put the `proj10PengXuYu` package under the `src` folder.
+
+2. Click on File|Project Structure menu item and, in the Libraries tab of
+   the project structure dialog, add the lib directory of the JavaFX library you
+   downloaded. In my case, it is located at:
+   `/Users/.../BantamJavaIDE/javafx-sdk-17.0.9/lib`
+
+   In Project Structure|Modules, go to the Dependencies tab. Add the richtextfx jar file included in this repo by choosing + and select "JARs or directories".
+
+3. Click on Run|Edit Configurations menu item, and create a new configuration by clicking on the "+" icon in the upper left corner of the configuration dialog.
+
+4. If you don't see an "Add VM Options" text field, click on the "modify options" on the right side of the configurations dialog and select the Add VM Options menu item.  Then, in the "Add VM Options" text field, type in the following text all on one line, except replacing my path inside the quotes with your path to the javafx library:
+
+```
+--module-path "your_path_to_javafx_pkg"/javafx-sdk-17.0.2/lib --add-modules javafx.controls,javafx.fxml
+```
+
+5. Type in the name of your class with the main method in the appropriate text field in the configurations dialog.  In our case, type `proj10PengXuYu`.
+
+6. Make sure that the Main class is in a folder named `proj10PengXuYu` and make sure that that folder is in the "src" directory in the root folder.
+
+7. Choose Run from the Run menu or click on the green triangle next to your main method in your Main class and your program should compile and run.
+
+From: <https://javabook.bloomu.edu/setupjavafx.html>
+
 
 ## Project Structure
 
